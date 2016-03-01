@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
@@ -20,7 +22,6 @@ import android.widget.TextView;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
-import com.example.xyzreader.data.ItemsContract;
 import com.example.xyzreader.data.UpdaterService;
 
 /**
@@ -32,6 +33,7 @@ import com.example.xyzreader.data.UpdaterService;
 public class ArticleListActivity extends AppCompatActivity implements
     LoaderManager.LoaderCallbacks<Cursor>, SwipeRefreshLayout.OnRefreshListener {
 
+  private CardView mCardView;
   private Toolbar mToolbar;
   private SwipeRefreshLayout mSwipeRefreshLayout;
   private RecyclerView mRecyclerView;
@@ -45,6 +47,9 @@ public class ArticleListActivity extends AppCompatActivity implements
 
 
     final View toolbarContainerView = findViewById(R.id.toolbar_container);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      toolbarContainerView.setElevation(4);
+    }
 
     mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
     mSwipeRefreshLayout.setProgressViewOffset(false, 150, 200);
@@ -134,11 +139,18 @@ public class ArticleListActivity extends AppCompatActivity implements
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
       View view = getLayoutInflater().inflate(R.layout.list_item_article, parent, false);
       final ViewHolder vh = new ViewHolder(view);
-      view.setOnClickListener(new View.OnClickListener() {
+      mCardView = (CardView) view.findViewById(R.id.card_item_article);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        mCardView.setCardElevation(2);
+      }
+      mCardView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-          startActivity(new Intent(Intent.ACTION_VIEW,
-              ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mCardView.setCardElevation(8);
+          }
+//          startActivity(new Intent(Intent.ACTION_VIEW,
+//              ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
         }
       });
       return vh;
