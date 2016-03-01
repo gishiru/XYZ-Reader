@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -132,6 +133,7 @@ public class ArticleDetailFragment extends Fragment implements
     mStatusBarColorDrawable = new ColorDrawable(0);
 
     mFab = (FloatingActionButton) mRootView.findViewById(R.id.share_fab);
+    mFab.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.theme_accent)));
     mFab.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -214,7 +216,7 @@ public class ArticleDetailFragment extends Fragment implements
               Bitmap bitmap = imageContainer.getBitmap();
               if (bitmap != null) {
                 Palette p = Palette.generate(bitmap, 12);
-                mMutedColor = p.getDarkMutedColor(0xFF333333);
+                mMutedColor = p.getLightMutedColor(0xFF333333);
                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                 mRootView.findViewById(R.id.meta_bar)
                     .setBackgroundColor(mMutedColor);

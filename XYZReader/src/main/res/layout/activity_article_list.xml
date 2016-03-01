@@ -25,7 +25,7 @@
       android:id="@+id/toolbar_container"
       android:layout_width="match_parent"
       android:layout_height="112dp"
-      android:background="?colorPrimary">
+      android:theme="@style/AppTheme.AppBarOverlay">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -33,11 +33,11 @@
         android:layout_height="?actionBarSize"
         android:layout_marginLeft="@dimen/list_toolbar_side_margin"
         android:layout_marginRight="@dimen/list_toolbar_side_margin"
-        app:theme="@style/AppTheme.AppBarOverlay">
+        app:theme="@style/AppTheme.PopupOverlay">
     </android.support.v7.widget.Toolbar>
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/list_toolbar_side_margin"
         android:contentDescription="@string/app_name"

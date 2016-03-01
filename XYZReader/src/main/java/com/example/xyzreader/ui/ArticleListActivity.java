@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
+import com.example.xyzreader.data.ItemsContract;
 import com.example.xyzreader.data.UpdaterService;
 
 /**
@@ -49,9 +50,12 @@ public class ArticleListActivity extends AppCompatActivity implements
     final View toolbarContainerView = findViewById(R.id.toolbar_container);
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       toolbarContainerView.setElevation(4);
+
+      getWindow().setStatusBarColor(getResources().getColor(R.color.theme_primary_dark));
     }
 
     mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+    mSwipeRefreshLayout.setColorSchemeResources(R.color.theme_primary);
     mSwipeRefreshLayout.setProgressViewOffset(false, 150, 200);
     mSwipeRefreshLayout.setOnRefreshListener(this);
 
@@ -149,8 +153,8 @@ public class ArticleListActivity extends AppCompatActivity implements
           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mCardView.setCardElevation(8);
           }
-//          startActivity(new Intent(Intent.ACTION_VIEW,
-//              ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+          startActivity(new Intent(Intent.ACTION_VIEW,
+              ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
         }
       });
       return vh;
