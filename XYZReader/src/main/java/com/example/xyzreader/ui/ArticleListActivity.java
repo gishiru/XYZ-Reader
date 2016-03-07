@@ -56,7 +56,10 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
     mSwipeRefreshLayout.setColorSchemeResources(R.color.theme_primary);
-    mSwipeRefreshLayout.setProgressViewOffset(false, 150, 200);
+    mSwipeRefreshLayout.setProgressViewOffset(
+        false,
+        (int) getResources().getDimension(R.dimen.progress_start),
+        (int) getResources().getDimension(R.dimen.progress_end));
     mSwipeRefreshLayout.setOnRefreshListener(this);
 
     mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
