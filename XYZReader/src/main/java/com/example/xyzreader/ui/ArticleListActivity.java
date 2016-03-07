@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
+import android.content.res.AssetManager;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -38,6 +40,7 @@ public class ArticleListActivity extends AppCompatActivity implements
   private Toolbar mToolbar;
   private SwipeRefreshLayout mSwipeRefreshLayout;
   private RecyclerView mRecyclerView;
+  private static AssetManager sAssetManager;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
+    sAssetManager = getResources().getAssets();
 
     final View toolbarContainerView = findViewById(R.id.toolbar_container);
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -192,6 +196,7 @@ public class ArticleListActivity extends AppCompatActivity implements
       super(view);
       thumbnailView = (DynamicHeightNetworkImageView) view.findViewById(R.id.thumbnail);
       titleView = (TextView) view.findViewById(R.id.article_title);
+      titleView.setTypeface(Typeface.createFromAsset(sAssetManager, "Rosario-Regular.ttf"));
       subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
     }
   }
