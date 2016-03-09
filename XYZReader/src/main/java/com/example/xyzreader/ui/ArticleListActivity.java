@@ -198,8 +198,9 @@ public class ArticleListActivity extends AppCompatActivity implements
       super(view);
       thumbnailView = (DynamicHeightNetworkImageView) view.findViewById(R.id.thumbnail);
       titleView = (TextView) view.findViewById(R.id.article_title);
-      titleView.setTypeface(Typeface.createFromAsset(sAssetManager, "Rosario-Regular.ttf"));
       subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
+      subtitleView.setTypeface(Typeface.createFromAsset(sAssetManager, "OpenSans-Regular.ttf"));
+
     }
   }
 }
