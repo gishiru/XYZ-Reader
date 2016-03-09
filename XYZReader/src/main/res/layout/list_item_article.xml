@@ -25,6 +25,7 @@
         android:background="@color/photo_placeholder"/>
 
     <TextView
+        android:fontFamily="sans-serif-condensed"
         android:id="@+id/article_title"
         style="@style/TextAppearance.AppCompat.Subhead"
         android:layout_width="match_parent"
