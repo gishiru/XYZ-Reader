@@ -1,4 +1,9 @@
 <resources>
+  <dimen name="activity_padding_bottom">28dp</dimen>
+  <dimen name="activity_padding_horizontal">4dp</dimen>
+  <dimen name="activity_padding_top">116dp</dimen>
+  <dimen name="activity_padding_vertical">4dp</dimen>
+
   <!-- detail -->
   <dimen name="detail_title_text_size">32sp</dimen>
   <dimen name="detail_body_text_size">20sp</dimen>
@@ -8,7 +13,16 @@
   <dimen name="fab_press_translation_z">6dp</dimen>
   <dimen name="fab_margin">24dp</dimen>
 
+  <dimen name="height_app_bar">112dp</dimen>
+  <dimen name="height_button">56dp</dimen>
+  
+  <dimen name="material_content_padding_horizontal">16dp</dimen>
+  
+  <dimen name="margin_text">24dp</dimen>
+  
   <dimen name="progress_end">150dp</dimen>
   <dimen name="progress_start">100dp</dimen>
+  
+  <dimen name="width_button">56dp</dimen>
 
 </resources>

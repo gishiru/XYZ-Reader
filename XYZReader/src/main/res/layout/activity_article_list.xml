@@ -14,17 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="28dp"
+        android:paddingBottom="@dimen/activity_padding_bottom"
         android:paddingLeft="@dimen/list_side_margin"
         android:paddingRight="@dimen/list_side_margin"
-        android:paddingTop="116dp"
+        android:paddingTop="@dimen/activity_padding_top"
         android:scrollbarStyle="outsideOverlay"/>
   </android.support.v4.widget.SwipeRefreshLayout>
 
   <android.support.design.widget.AppBarLayout
       android:id="@+id/toolbar_container"
       android:layout_width="match_parent"
-      android:layout_height="112dp"
+      android:layout_height="@dimen/height_app_bar"
       android:theme="@style/AppTheme.AppBarOverlay">
 
     <android.support.v7.widget.Toolbar
